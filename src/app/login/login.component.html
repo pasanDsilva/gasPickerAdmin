@@ -1,0 +1,44 @@
+<jaspero-alerts></jaspero-alerts>
+<body>
+<div class="d-flex align-items-center flex-column justify-content-center h-100  text-white" id="header">
+  <div class="screen">
+    <div class="outline">
+      <h1 class="text-center display-4" id="h">Hello</h1>
+    
+       <div class="form-group">
+          
+           <input
+            
+            id="username"
+            type="text"
+            placeholder="Username"
+            #username
+            [(ngModel)]="logform.username"
+            class="form-control">
+           <!-- <div *ngIf="username.touched && username.invalid" class="alert alert-danger">Username is required</div> -->
+      </div>
+      
+      <div class="form-group">
+          
+          <input
+            id="password"
+            type="text"
+            placeholder="Password"
+            #password
+            [(ngModel)]="logform.password"
+            class="form-control">
+            <!-- <div *ngIf="password.touched && password.invalid" class="alert alert-danger">Username is required</div> -->
+      </div>
+      
+     <button class="btn btn-primary " id="btn" type="button"(click)="handleSubmit()" >Login</button>
+     
+          <h5 class="text-center">or</h5>
+          <div>
+            <button class="btn btn-success "  type="button"(click)="btnlog()" >Sign up</button>
+          </div>
+         
+      
+      </div>
+    </div>
+    </div>
+</body>

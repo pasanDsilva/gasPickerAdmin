@@ -1,0 +1,29 @@
+input{
+    width: 100%;
+}
+.outline{
+    
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10%;
+    Background : rgba(110, 143, 146, 0.25);
+    
+}
+.btn{
+    width: 100%;
+    margin-right: 10%;
+    
+}
+
+
+body{
+    
+    width:100%;
+    height: 100%;
+    position: fixed;
+    background-image: url(img/as.jpeg);
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    background-size: 100% 100%;
+}
