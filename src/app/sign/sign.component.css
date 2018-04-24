@@ -1,0 +1,36 @@
+input{
+    width: 100%;
+}
+.outline{
+    
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10%;
+    Background : rgba(96, 111, 112, 0.25);
+    background-image: image('Downloads/pexels-photo.jpg')
+    
+}
+.btn{
+    width: 100%;
+    margin-right: 10%;
+    
+    
+}
+
+
+body{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-image: url(img/as.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+
+}
+
+
+.goback{
+    margin-top: 10px;
+}
