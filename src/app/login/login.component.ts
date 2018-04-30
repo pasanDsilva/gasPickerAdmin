@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { LoginService } from './login.service';
 import { AlertsService, AlertType, AlertSettings } from '@jaspero/ng-alerts';
+import { empty } from 'rxjs/Observer';
 
 
 
@@ -48,11 +49,11 @@ export class LoginComponent  {
     user.subscribe(data => {
       console.log(data)
 
-      if(data.length > 0){
+      if(data.length > 0){ 
         const userObj = data[0];
         if(userObj.password === this.logform.password){
           console.log("Password match")
-         this.btnmain()
+          this.btnmain()
           return {error:false, message: "Success"}
         }
         else{
@@ -66,16 +67,13 @@ export class LoginComponent  {
         console.log("User does not exist")
         
         this.alertService.create("error","Error", "User does not exist", this.alertOption  )
-      }
-    }
-  }  
 
-  
-  
-  
-  
-  }
-
+       }
+        
+      
+    })
   
 
+ }
 
+}

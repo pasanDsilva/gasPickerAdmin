@@ -1,3 +1,4 @@
+import { NewaccService } from './newacc/newacc.service';
 import { SignService } from './sign/sign.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SignComponent } from './sign/sign.component';
 import { MainComponent } from './main/main.component';
 import { LoginService } from './login/login.service';
+import { NewaccComponent } from './newacc/newacc.component';
+import { UsersComponent } from './users/users.component';
 
 
 
@@ -31,7 +34,9 @@ import { LoginService } from './login/login.service';
     AppComponent,
     LoginComponent,
     SignComponent,
-    MainComponent
+    MainComponent,
+    NewaccComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -44,12 +49,14 @@ import { LoginService } from './login/login.service';
     RouterModule.forRoot([
       { path:'', component : LoginComponent},
       { path:'signup', component : SignComponent},
-      { path:'main',component:MainComponent}
+      { path:'main',component:MainComponent},
+      { path: 'newacc',component:NewaccComponent},
+      { path: 'users',component:UsersComponent}
       
     ]),
     
   ],
-  providers: [SignService, LoginService],
+  providers: [SignService, LoginService,NewaccService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
