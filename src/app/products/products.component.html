@@ -1,0 +1,83 @@
+<jaspero-alerts></jaspero-alerts>
+<div class="side-nav  text-white">
+            
+  <div class="side-nav-img">
+      <img src="https://cdn0.iconfinder.com/data/icons/let-us-eat-now/512/gas-cylinder_kitchen_cook_utility-512.png">
+  </div>
+<a class="btn btn-outline-light" routerLink="/newacc">Add New Account</a>
+<a class="btn btn-outline-light" routerLink="/users">Distributors</a>
+<a class="btn btn-outline-light" routerLink="/products">Update Products</a>
+<a class="btn btn-outline-light" routerLink="/feedback">Customer Feedback</a>
+<a class="btn btn-outline-danger"routerLink="/">Logout</a>
+
+</div>
+
+<div class="body text-white">
+  <h1 class="text-center display-4">
+      <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+    Products
+  </h1>
+  <div class="view">
+    <table class="table table-borderless table-hover">
+      <thead>
+          <!-- <div class="zoom"> -->
+        <tr>
+          <th>Brand</th>
+          <th>Size</th>
+          <th>Price</th>
+        </tr>
+      <!-- </div> -->
+      </thead>
+      <tbody>
+        <tr *ngFor="let products of products"  >
+            <!-- <div class="zoom">  -->
+          <td>{{products.brand}}</td>
+          <td>{{products.size}}</td>
+          <td>{{products.price}}</td>
+          <button (click)="removeProduct()">delete</button>
+        <!-- </div> -->
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="form">
+      <div class="form-group">
+        <input
+          id="brand"
+          type="text"
+          placeholder="Brand"
+          class="form-control"
+          #brand
+          [(ngModel)]="addPro.brand"
+        >
+        </div>
+  
+        <div class="form-group">
+        <input
+          id="size"
+          type="text"
+          placeholder="Size"
+          class="form-control"
+          #size
+          [(ngModel)]="addPro.size"
+        >
+      </div>
+      <div class="form-group">
+        <input
+          id="price"
+          type="text"
+          placeholder="Price"
+          class="form-control"
+          #price
+          [(ngModel)]="addPro.price"
+        >
+      </div>
+  
+        <button class="btn btn-outline-success" id="submit" (click)="addProduct()" >Add Product</button>
+        <div>
+          <button class="btn btn-outline-danger" id="submit" >remove</button>
+        </div>
+        
+      
+    </div>
+</div>
