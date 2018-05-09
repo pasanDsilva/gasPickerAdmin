@@ -20,30 +20,6 @@ const responseObj = {
 }
     const user:any = this.db.list("/user",ref => ref.orderByChild('username').equalTo(obj.username) ).valueChanges();
     return user;
-    // user.subscribe(data => {
-    //   console.log(data)
-    //   if(data.length > 0){
-    //     const userObj = data[0];
-    //     if(userObj.password === obj.password){
-    //       console.log("Password match")
-    //       return {error:false, message: "Success"}
-    //     }else{
-          
-    //       return {error:false, message: "Password does not match"}
-    //     }
-       
-    //   }else{
-    //     console.log("User does not exist")
-    //     return {error:false, message: "User does not exist"}
-    //   }
-    // }
-  // );
-   
-
-
-    
-
-    
   }
 
 }
