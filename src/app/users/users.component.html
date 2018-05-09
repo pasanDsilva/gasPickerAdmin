@@ -1,0 +1,38 @@
+<jaspero-alerts></jaspero-alerts>
+<div class="side-nav  text-white">
+            
+  <div class="side-nav-img">
+      <img src="https://cdn0.iconfinder.com/data/icons/let-us-eat-now/512/gas-cylinder_kitchen_cook_utility-512.png">
+  </div>
+<a class="btn btn-outline-light" routerLink="/newacc">Add New Account</a>
+<a class="btn btn-outline-light" routerLink="/users">Distributors</a>
+<a class="btn btn-outline-light" routerLink="/products">Update Products</a>
+<a class="btn btn-outline-light" routerLink="/feedback">Customer Feedback</a>
+<a class="btn btn-outline-danger"routerLink="/">Logout</a>
+
+</div>
+
+<div class="body text-white">
+  <h1 class="text-center display-4">
+      <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+    Distributors
+  </h1>
+  <div class="view">
+    <table class="table table-borderless table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dist of dist"  >
+          <td>{{dist.dealerName}}</td>
+          <td>{{dist.phone}}</td>
+          <td>{{dist.location}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

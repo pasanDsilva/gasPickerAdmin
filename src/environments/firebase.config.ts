@@ -1,6 +1,6 @@
 export const firebaseConfig = {
-    apiKey: 'AIzaSyDv4bNYIZSVZj_13E0wY5De9vhT_WRblfY',
-    authDomain: 'angular-test1pasan.firebaseapp.com',
-    databaseURL: 'https://angular-test1pasan.firebaseio.com',
-    storageBucket: 'angular-test1pasan.appspot.com'
+  apiKey: 'AIzaSyApmp74GvSrpPKouRoLoB6NEuQJdIy4dcY',
+  authDomain: 'my-project-1482912783102.firebaseapp.com',
+  databaseURL: 'https://my-project-1482912783102.firebaseio.com',
+  storageBucket: 'my-project-1482912783102.appspot.com'
   };

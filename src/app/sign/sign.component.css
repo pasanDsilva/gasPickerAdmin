@@ -8,7 +8,7 @@ input{
     margin-right: auto;
     padding: 10%;
     Background : rgba(96, 111, 112, 0.25);
-    background-image: image('Downloads/pexels-photo.jpg')
+    /* background-image: image('Downloads/pexels-photo.jpg') */
     
 }
 .btn{
@@ -23,7 +23,7 @@ body{
     height: 100%;
     width: 100%;
     position: fixed;
-    background-image: url(img/as.jpeg);
+    background-image: url(img/log.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
