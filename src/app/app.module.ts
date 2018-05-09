@@ -1,3 +1,5 @@
+import { ProductsService } from './products/products.service';
+import { UserService } from './users/user.service';
 import { NewaccService } from './newacc/newacc.service';
 import { SignService } from './sign/sign.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,6 +27,7 @@ import { MainComponent } from './main/main.component';
 import { LoginService } from './login/login.service';
 import { NewaccComponent } from './newacc/newacc.component';
 import { UsersComponent } from './users/users.component';
+import { ProductsComponent } from './products/products.component';
 
 
 
@@ -36,7 +39,8 @@ import { UsersComponent } from './users/users.component';
     SignComponent,
     MainComponent,
     NewaccComponent,
-    UsersComponent
+    UsersComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,12 +55,13 @@ import { UsersComponent } from './users/users.component';
       { path:'signup', component : SignComponent},
       { path:'main',component:MainComponent},
       { path: 'newacc',component:NewaccComponent},
-      { path: 'users',component:UsersComponent}
+      { path: 'users',component:UsersComponent},
+      { path: 'products', component:ProductsComponent},
       
     ]),
     
   ],
-  providers: [SignService, LoginService,NewaccService],
+  providers: [SignService, LoginService,NewaccService,UserService,ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
