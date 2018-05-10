@@ -5,60 +5,66 @@
         <div class="outline">
           <h1 class="text-center display-4" id="h">Sign Up</h1>
           <div>
+           
             <div class="form-group">
               
               <input
-               
                id="username"
                type="text"
+               required minlength="4" maxlength="10"
                placeholder="Username"
                class="form-control"
-               #username
+               #username="ngModel"
                [(ngModel)]="regForm.username"
+               (change)="log(username)"
+               
                >
-              <!-- <div *ngIf="username.touched && username.invalid"class="alert alert-danger">Username is required</div> -->
+               <div class="alert alert-danger" *ngIf= "username.touched && !username.valid" >
+                <div *ngIf="username.errors.required">
+                  Username is required
+                </div>
+                <div *ngIf="username.errors.minlength">
+                  Username should be more than 4 characters
+                </div>
+              </div>
          </div>
-         <div class="form-group">
+         <div class="form-group" >
            <input
              
+             required
              id="email"
              type="text"
              placeholder="Email"
              class="form-control"
-             #email
+             #email="ngModel"
              [(ngModel)]="regForm.email"
+             
              >
-             <!-- <div *ngIf="email.touched && email.invalid" class="alert alert-danger">Email is required</div>  -->
+             <div class="alert alert-danger" *ngIf= "email.touched && !email.valid" >
+              <div *ngIf="email.errors.required">Email is required</div>
+              <div *ngIf="email.errors.email">Enter a valid Email</div>
+            </div>
          </div>
-         <div class="form-group">
+         <div class="form-group" >
              
              <input
-               
+               required minlength="6"
                id="password"
-               type="text"
+               type="password"
                placeholder="Password"
                class="form-control"
-               #password
+               #password="ngModel"
                [(ngModel)]="regForm.password"
+               
                >
                
-               <!-- <div *ngIf="password.touched && password.invalid" class="alert alert-danger">Password is required</div> -->
+               <div class="alert alert-danger" *ngIf= "password.touched && !password.valid" >
+                <div *ngIf="password.errors.required">Password is required</div>
+                <div *ngIf="password.errors.minlength">Password should be more than 6 characters</div>
+              </div>
          </div>
-         <!-- <div class="form-group">
-             
-            <input
-              
-              id="cpassword"
-              type="text"
-              placeholder="Confirm Password"
-              class="form-control"
-              #cpassword
-              [(ngModel)]="regForm.cpassword"
-              >
-              
-               </div> -->
-                
-            <button class="btn btn-primary " id="btn" (click)="handleSubmit()" >Sign Up</button>
+         
+            <button class="btn btn-primary " id="btn"  (click)="handleSubmit()" >Sign Up</button>
             <div class="goback" >
               <button class=" btn btn-success" id="back" (click)="btnclick()">Go back to login</button>
             </div>

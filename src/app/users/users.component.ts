@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class UsersComponent  {
 
   dist:any[];
-
+  db:AngularFireDatabase;
   constructor(db:AngularFireDatabase) {
         db.list('/seller').valueChanges()
         .subscribe(user =>{
@@ -21,4 +21,9 @@ export class UsersComponent  {
   }
 
 
+  removeUser(dist){
+      this.db.list('/seller' +dist.$key())
+      .remove().then(x=> console.log("deleted"))
+
+}
 }

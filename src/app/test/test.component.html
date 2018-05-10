@@ -1,0 +1,42 @@
+<ul *ngIf=" products$ | async as product">
+  <li> {{ product.brand }} </li>
+  <li> {{ product.size }}</li>
+  <li> {{ product.price }}</li>
+</ul>
+
+
+
+<!-- <div class="form bg-dark">
+  <div class="form-group">
+    <input
+      id="brand"
+      type="text"
+      placeholder="Brand"
+      class="form-control"
+      #brand
+      [(ngModel)]="addPro.brand"
+    >
+    </div>
+
+    <div class="form-group">
+    <input
+      id="size"
+      type="text"
+      placeholder="Size"
+      class="form-control"
+      #size
+      [(ngModel)]="addPro.size"
+    >
+  </div>
+  <div class="form-group">
+    <input
+      id="price"
+      type="text"
+      placeholder="Price"
+      class="form-control"
+      #price
+      [(ngModel)]="addPro.price"
+    >
+  </div>
+
+    <button class="btn btn-outline-success" id="submit" (click)="addProduct()" >Add Product</button> -->

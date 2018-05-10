@@ -29,12 +29,12 @@
       <!-- </div> -->
       </thead>
       <tbody>
-        <tr *ngFor="let products of products"  >
+        <tr *ngFor=" let products of products | async "  >
             <!-- <div class="zoom">  -->
-          <td>{{products.brand}}</td>
-          <td>{{products.size}}</td>
-          <td>{{products.price}}</td>
-          <button (click)="removeProduct()">delete</button>
+          <td>{{ products.brand }}</td>
+          <td>{{ products.size }}</td>
+          <td>{{ products.price }}</td>
+          <button class="btn btn-outline-warning" (click)="removeProduct()">delete</button>
         <!-- </div> -->
         </tr>
       </tbody>
@@ -43,40 +43,52 @@
     <div class="form">
       <div class="form-group">
         <input
+          required
           id="brand"
           type="text"
           placeholder="Brand"
           class="form-control"
-          #brand
+          #brand="ngModel"
           [(ngModel)]="addPro.brand"
         >
+        <div class="alert alert-danger" *ngIf= "brand.touched && !brand.valid" >
+            <div *ngIf="brand.errors.required">Brand name is required</div>
+          </div>
         </div>
   
         <div class="form-group">
         <input
+          
+          required 
           id="size"
-          type="text"
+          type="number"
           placeholder="Size"
           class="form-control"
-          #size
+          #size="ngModel"
           [(ngModel)]="addPro.size"
         >
+        <div class="alert alert-danger" *ngIf= "size.touched && !size.valid" >
+            <div *ngIf="size.errors.required">Please enter a size</div>
+           
+          </div>
       </div>
       <div class="form-group">
         <input
+          required
           id="price"
-          type="text"
+          type="number"
           placeholder="Price"
           class="form-control"
-          #price
+          #price="ngModel"
           [(ngModel)]="addPro.price"
         >
+        <div class="alert alert-danger" *ngIf= "price.touched && !price.valid" >
+            <div *ngIf="price.errors.required">Price is required</div>
+          </div>
       </div>
   
         <button class="btn btn-outline-success" id="submit" (click)="addProduct()" >Add Product</button>
-        <div>
-          <button class="btn btn-outline-danger" id="submit" >remove</button>
-        </div>
+        <!-- <button class="btn btn-outline-warning" (click)="removeProduct()">delete</button> -->
         
       
     </div>

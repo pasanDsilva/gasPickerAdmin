@@ -37,7 +37,9 @@ export class SignComponent {
   
  }
 
-      
+ log(x,y,z){ console.log(x,y,z)
+
+ } 
   createNewAcc(username,email,password){
     this.sign=this.signService.createAcc({username, email, password});
     this.buildForm()

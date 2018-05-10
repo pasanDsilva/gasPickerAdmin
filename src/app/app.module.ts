@@ -28,6 +28,7 @@ import { LoginService } from './login/login.service';
 import { NewaccComponent } from './newacc/newacc.component';
 import { UsersComponent } from './users/users.component';
 import { ProductsComponent } from './products/products.component';
+import { TestComponent } from './test/test.component';
 
 
 
@@ -40,7 +41,8 @@ import { ProductsComponent } from './products/products.component';
     MainComponent,
     NewaccComponent,
     UsersComponent,
-    ProductsComponent
+    ProductsComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,7 @@ import { ProductsComponent } from './products/products.component';
       { path: 'newacc',component:NewaccComponent},
       { path: 'users',component:UsersComponent},
       { path: 'products', component:ProductsComponent},
-      
+      { path: 'test', component:TestComponent}
     ]),
     
   ],

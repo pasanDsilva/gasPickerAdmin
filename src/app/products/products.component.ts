@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { ProductsService } from './products.service';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
@@ -13,8 +14,8 @@ import { AlertsService, AlertType, AlertSettings } from '@jaspero/ng-alerts';
 })
 export class ProductsComponent  {
 
-  products:any[];
-  p$:AngularFireList<any[]>;
+  products:Observable<any[]>;
+  // p$:AngularFireObject<any[]>;
   db:AngularFireDatabase;
   addPro={brand:'',size:'',price:''}
   rePro={brand:''}
@@ -26,13 +27,13 @@ export class ProductsComponent  {
   }
   
 
-  constructor(db:AngularFireDatabase,private ProductsService:ProductsService,private alertService: AlertsService) {
-    db.list('/products').valueChanges().subscribe(products =>{
-      this.products=products;
-      console.log(this.products);
-    })
+  constructor(db:AngularFireDatabase,private db1:AngularFireDatabase,private ProductsService:ProductsService,private alertService: AlertsService) {
      
+    this.products=db.list('/products/').valueChanges()
+     console.log(this.products);
     
+      
+     
 
     
    }
@@ -44,9 +45,9 @@ export class ProductsComponent  {
       
     }
   
-  removeProduct(products){
-      this.db.list('/products/' +products.$key)
-      .remove(products)
+  removeProduct(){
+      this.db.object('/products/-LC4mpuBNp4mdivZUWRy')
+      .remove()
       .then(x => console.log("deleted"));
     } 
 }
