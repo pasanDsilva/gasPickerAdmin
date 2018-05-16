@@ -1,6 +1,6 @@
 <jaspero-alerts></jaspero-alerts>
 <div class="side-nav  text-white">
-            
+   
   <div class="side-nav-img">
       <img src="https://cdn0.iconfinder.com/data/icons/let-us-eat-now/512/gas-cylinder_kitchen_cook_utility-512.png">
   </div>
@@ -12,11 +12,13 @@
 
 </div>
 
+
 <div class="body text-white">
   <h1 class="text-center display-4">
       <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
     Distributors
   </h1>
+  
   <div class="view">
     <table class="table table-borderless table-hover">
       <thead>
@@ -31,9 +33,36 @@
           <td>{{dist.dealerName}}</td>
           <td>{{dist.phone}}</td>
           <td>{{dist.location}}</td>
-          <button (click)="removeUser(dist)">delete</button>
+          <button class="btn btn-outline-primary" (click)="open(content)">View Profile</button>
+          
+          <!-- Modal -->
+
         </tr>
       </tbody>
     </table>
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">Profile</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul *ngFor="let dist of dist">
+            <h4>Name</h4>
+              <li> {{dist.dealerName}} </li>
+              <h4>Location</h4>
+              <li> {{dist.location}}</li>
+              <h4>Email</h4>
+              <li> {{dist.email}}</li>
+              <h4>Phone</h4>
+              <li> {{dist.phone}}</li>
+          </ul>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+        </div>
+      </ng-template>
   </div>
 </div>

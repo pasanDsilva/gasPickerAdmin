@@ -1,6 +1,10 @@
+import { NgbModal,ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { async } from '@angular/core/testing';
 import { AngularFireDatabase,AngularFireObject } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
+// import { NgbModal}
+
+
 
 
 @Component({
@@ -10,17 +14,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent  {
   
-  products$;
+  seller:any[];
+ closeResult: string;
 
-  constructor(db:AngularFireDatabase) { 
-      this.products$= db.object('/products/-LC4mpuBNp4mdivZUWRy').valueChanges();
+  constructor(db:AngularFireDatabase,private modalService: NgbModal) { 
+      db.list('/seller').valueChanges().subscribe(seller =>
+        this.seller=seller
+
+      )
+      console.log(this.seller);
 
   }
 
   add(product:HTMLInputElement){
-      this.products$
+     
   }
     
+  open(content) {
+    this.modalService.open(content).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
   
-
 }

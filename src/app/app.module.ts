@@ -7,6 +7,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';  //<<<< import it here
 import {JasperoAlertsModule} from '@jaspero/ng-alerts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {
+  AngularFireDatabase,
+  FirebaseObjectObservable,
+  FirebaseListObservable
+} from 'angularfire2/database-deprecated';
 
 
 
@@ -17,6 +23,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+// import { AngularFireDatabaseModule} from 'angularfire2/database-deprecated';
 
 import { firebaseConfig } from '../environments/firebase.config';
 
@@ -51,6 +58,7 @@ import { TestComponent } from './test/test.component';
     AngularFireDatabaseModule,
     JasperoAlertsModule.forRoot(),
     BrowserAnimationsModule,
+    NgbModule.forRoot(),
     FormsModule,
     RouterModule.forRoot([
       { path:'', component : LoginComponent},

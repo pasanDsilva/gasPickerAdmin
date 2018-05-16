@@ -45,13 +45,14 @@
 
 .body{
     padding-left:  210px;
+    background: #222;
+    background-size: 100%;
+    position: absolute;
     height: 100%;
     width: 100%;
-    position: fixed;
     font-family: 'Raleway', sans-serif;
-    /* padding: 1em 2em; */
     font-size: 18px;
-    background: #222;
+    
     color: #aaa;
     overflow: visible;
 }

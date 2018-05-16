@@ -1,42 +1,24 @@
-<ul *ngIf=" products$ | async as product">
-  <li> {{ product.brand }} </li>
-  <li> {{ product.size }}</li>
-  <li> {{ product.price }}</li>
-</ul>
-
-
-
-<!-- <div class="form bg-dark">
-  <div class="form-group">
-    <input
-      id="brand"
-      type="text"
-      placeholder="Brand"
-      class="form-control"
-      #brand
-      [(ngModel)]="addPro.brand"
-    >
-    </div>
-
-    <div class="form-group">
-    <input
-      id="size"
-      type="text"
-      placeholder="Size"
-      class="form-control"
-      #size
-      [(ngModel)]="addPro.size"
-    >
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Profile</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-  <div class="form-group">
-    <input
-      id="price"
-      type="text"
-      placeholder="Price"
-      class="form-control"
-      #price
-      [(ngModel)]="addPro.price"
-    >
+  <div class="modal-body">
+    <ul *ngFor="let seller of seller">
+        <li> {{seller.dealerName}} </li>
+        <li> {{seller.location}}</li>
+          <li> {{seller.email}}</li>
+      
+    </ul>
+    
   </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
 
-    <button class="btn btn-outline-success" id="submit" (click)="addProduct()" >Add Product</button> -->
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">View Profile</button>
+
+

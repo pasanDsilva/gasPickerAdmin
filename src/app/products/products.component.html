@@ -29,12 +29,12 @@
       <!-- </div> -->
       </thead>
       <tbody>
-        <tr *ngFor=" let products of products | async "  >
+        <tr *ngFor=" let products of  products "  >
             <!-- <div class="zoom">  -->
           <td>{{ products.brand }}</td>
           <td>{{ products.size }}</td>
           <td>{{ products.price }}</td>
-          <button class="btn btn-outline-warning" (click)="removeProduct()">delete</button>
+          <button class="btn btn-outline-warning" (click)="removeProduct(products)">delete</button>
         <!-- </div> -->
         </tr>
       </tbody>
@@ -50,6 +50,7 @@
           class="form-control"
           #brand="ngModel"
           [(ngModel)]="addPro.brand"
+          [(ngModel)]="test1"
         >
         <div class="alert alert-danger" *ngIf= "brand.touched && !brand.valid" >
             <div *ngIf="brand.errors.required">Brand name is required</div>
@@ -61,11 +62,12 @@
           
           required 
           id="size"
-          type="number"
+          type="text"
           placeholder="Size"
           class="form-control"
           #size="ngModel"
           [(ngModel)]="addPro.size"
+          [(ngModel)]="test"
         >
         <div class="alert alert-danger" *ngIf= "size.touched && !size.valid" >
             <div *ngIf="size.errors.required">Please enter a size</div>
@@ -81,12 +83,12 @@
           class="form-control"
           #price="ngModel"
           [(ngModel)]="addPro.price"
+
         >
         <div class="alert alert-danger" *ngIf= "price.touched && !price.valid" >
             <div *ngIf="price.errors.required">Price is required</div>
           </div>
       </div>
-  
         <button class="btn btn-outline-success" id="submit" (click)="addProduct()" >Add Product</button>
         <!-- <button class="btn btn-outline-warning" (click)="removeProduct()">delete</button> -->
         

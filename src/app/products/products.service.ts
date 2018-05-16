@@ -1,4 +1,5 @@
-import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+// import { FirebaseListObservable,AngularFireDatabase } from 'angularfire2/database-deprecated';
+import {  AngularFireObject,AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 
 
@@ -7,6 +8,7 @@ export class newProductTemp{
   brand='Brand name'
   size='Size'
   price='price'
+  brandSize='Brand and Size'
 }
 
 @Injectable()
