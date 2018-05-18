@@ -23,6 +23,7 @@
     "@angular/router": "^5.2.0",
     "@jaspero/ng-alerts": "^0.1.1",
     "@ng-bootstrap/ng-bootstrap": "^2.0.0",
+    "@types/googlemaps": "^3.30.8",
     "angular-bootstrap-modal": "^1.0.8",
     "angular-modals": "0.0.1",
     "angular-ui-bootstrap": "^2.5.6",

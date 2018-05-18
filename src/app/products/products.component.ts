@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { JasperoAlertsModule } from '@jaspero/ng-alerts';
 import { AlertsService, AlertType, AlertSettings } from '@jaspero/ng-alerts';
 import { and } from '@angular/router/src/utils/collection';
+// import { $ } from 'protractor';
 
 
 
@@ -68,7 +69,7 @@ export class ProductsComponent  {
     }
   
   removeProduct(products){
-      this.db.list('/products/' + products.$key)
+      this.db.object('/products/' + products.$key)
       .remove()
       .then(x => console.log("deleted"));
     } 

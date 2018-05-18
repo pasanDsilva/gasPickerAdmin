@@ -3,13 +3,17 @@ import { Router } from '@angular/router';
 import { UserService } from './user.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal,ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ViewChild,ElementRef} from '@angular/core';
+import { } from '@types/googlemaps';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent  {
+export class UsersComponent implements OnInit {
+  @ViewChild('gmap') gmapElement:any;
+    map: google.maps.Map;
 
   dist:any[];
   db:AngularFireDatabase;
@@ -18,8 +22,26 @@ export class UsersComponent  {
         .subscribe(user =>{
           this.dist=user;
           console.log(this.dist)
-        })
-  }
+        });
+        
+        
+      }
+      ngOnInit() {
+        var mapProp = {
+          center: new google.maps.LatLng(18.5793, 73.8143),
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+        console.log("this was called");
+        console.log(mapProp);
+      }
+   
+    
+        
+  
+
+  
 
 
   removeUser(dist){
@@ -28,6 +50,7 @@ export class UsersComponent  {
 
 }
 open(content) {
-  this.modalService.open(content,{size:'lg',centered: true},);
+  this.modalService.open(content,{size:'lg',centered: true,windowClass: 'dark-modal'},);
+  
 }
 }

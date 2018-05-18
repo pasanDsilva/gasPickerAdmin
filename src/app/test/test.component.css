@@ -1,3 +1,8 @@
 li{
     color: black;
 }
+
+.body{
+    background-color:cyan;
+    height: 1000px;
+}

@@ -16,6 +16,7 @@ export class TestComponent  {
   
   seller:any[];
  closeResult: string;
+ 
 
   constructor(db:AngularFireDatabase,private modalService: NgbModal) { 
       db.list('/seller').valueChanges().subscribe(seller =>
@@ -23,6 +24,8 @@ export class TestComponent  {
 
       )
       console.log(this.seller);
+
+      particlesJS.load('particles-js', 'particles.json', null);
 
   }
 
