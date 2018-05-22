@@ -13,6 +13,7 @@ import {
   FirebaseObjectObservable,
   FirebaseListObservable
 } from 'angularfire2/database-deprecated';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -36,6 +37,7 @@ import { NewaccComponent } from './newacc/newacc.component';
 import { UsersComponent } from './users/users.component';
 import { ProductsComponent } from './products/products.component';
 import { TestComponent } from './test/test.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 
@@ -49,7 +51,8 @@ import { TestComponent } from './test/test.component';
     NewaccComponent,
     UsersComponent,
     ProductsComponent,
-    TestComponent
+    TestComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,9 @@ import { TestComponent } from './test/test.component';
     BrowserAnimationsModule,
     NgbModule.forRoot(),
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDyA7jlamkkhsv9-XM9fF-ztZeKgR53jH4'
+    }),
     RouterModule.forRoot([
       { path:'', component : LoginComponent},
       { path:'signup', component : SignComponent},
