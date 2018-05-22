@@ -86,3 +86,6 @@
     opacity: 0;
     transition: 0.15s;
   }
+ agm-map {
+    height: 300px;
+  }

@@ -1,9 +1,11 @@
+// import { AgmCoreModule } from '@agm/core';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import { UserService } from './user.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal,ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ViewChild,ElementRef} from '@angular/core';
+// import { AgmCoreModule}
 import { } from '@types/googlemaps';
 
 @Component({
@@ -12,8 +14,10 @@ import { } from '@types/googlemaps';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  @ViewChild('gmap') gmapElement:any;
-    map: google.maps.Map;
+  // @ViewChild('gmap') gmapElement:any;
+  //   map: google.maps.Map;
+    lat: number = 6.903955;
+  lng: number = 79.85521;
 
   dist:any[];
   db:AngularFireDatabase;
@@ -26,31 +30,37 @@ export class UsersComponent implements OnInit {
         
         
       }
-      ngOnInit() {
-        var mapProp = {
-          center: new google.maps.LatLng(18.5793, 73.8143),
-          zoom: 15,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
-        console.log("this was called");
-        console.log(mapProp);
-      }
    
     
-        
-  
+        ngOnInit(){
+
+          // let mapProp = {
+          //   center: new google.maps.LatLng(18.5793, 73.8143),
+          //   zoom: 15,
+          //   mapTypeId: google.maps.MapTypeId.ROADMAP
+          // };
+          // // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+          // console.log("this was called");
+          // console.log(mapProp);
+        }
+
 
   
 
 
   removeUser(dist){
-      this.db.list('/seller' +dist.$key())
+      this.db.list('/seller' + dist.$key)
       .remove().then(x=> console.log("deleted"))
 
 }
+
+mapload(){
+
+}
+
 open(content) {
-  this.modalService.open(content,{size:'lg',centered: true,windowClass: 'dark-modal'},);
+  this.modalService.open(content,{size:'lg',centered: true},);
   
 }
+
 }
