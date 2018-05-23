@@ -19,14 +19,20 @@ export class UsersComponent implements OnInit {
     lat: number = 6.903955;
   lng: number = 79.85521;
 
-  dist:any[];
+  dist$;
   db:AngularFireDatabase;
   constructor(db:AngularFireDatabase,private modalService: NgbModal) {
-        db.list('/seller').valueChanges()
-        .subscribe(user =>{
-          this.dist=user;
-          console.log(this.dist)
-        });
+       this.dist$=
+       db.list('/profile').snapshotChanges()
+      .map(changes =>{
+        return changes.map(c =>({
+          key:c.payload.key,
+          ...c.payload.val(),
+        }))
+      })
+        let s=this.dist$;
+          console.log(this.dist$);
+        
         
         
       }
@@ -34,12 +40,13 @@ export class UsersComponent implements OnInit {
     
         ngOnInit(){
 
+
           // let mapProp = {
           //   center: new google.maps.LatLng(18.5793, 73.8143),
           //   zoom: 15,
           //   mapTypeId: google.maps.MapTypeId.ROADMAP
           // };
-          // // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+          // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
           // console.log("this was called");
           // console.log(mapProp);
         }
@@ -48,19 +55,17 @@ export class UsersComponent implements OnInit {
   
 
 
-  removeUser(dist){
-      this.db.list('/seller' + dist.$key)
+  removeUser(dist$){
+      this.db.list('/profile' + dist$.$key)
       .remove().then(x=> console.log("deleted"))
 
 }
 
-mapload(){
 
-}
 
-open(content) {
-  this.modalService.open(content,{size:'lg',centered: true},);
-  
+open(dist) {
+  this.modalService.open(dist,{size:'lg',centered: true},);
+  console.log(dist);
 }
 
 }

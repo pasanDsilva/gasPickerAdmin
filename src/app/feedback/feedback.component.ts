@@ -5,11 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.css']
 })
-export class FeedbackComponent implements OnInit {
+export class FeedbackComponent  {
 
-  constructor() { }
+  constructor() {
 
-  ngOnInit() {
-  }
+    
+
+
+   }
+
+  
 
 }

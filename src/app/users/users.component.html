@@ -30,11 +30,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let dist of dist"  >
-          <td>{{dist.dealerName}} </td>
+        <tr *ngFor="let dist of dist$ | async"  >
+          <td>{{dist.dealerName}}</td>
           <td>{{dist.phone}}</td>
           <td>{{dist.location}}</td>
-          <button class="btn btn-outline-primary" (click)="open(content)">View Profile</button>
+          <button class="btn btn-outline-primary" (click)="open(dist)  ">View Profile</button>
+          <!-- <button class="btn btn-outline-primary" (click)="removeUser(dist)">delete</button> -->
           
           <!-- Modal -->
 
@@ -49,7 +50,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <ul *ngFor="let dist of dist">
+          <ul >
             <h4>Name</h4>
               <li> {{dist.dealerName}} </li>
               <h4>Location</h4>

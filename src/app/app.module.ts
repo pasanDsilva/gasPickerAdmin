@@ -73,7 +73,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
       { path: 'newacc',component:NewaccComponent},
       { path: 'users',component:UsersComponent},
       { path: 'products', component:ProductsComponent},
-      { path: 'test', component:TestComponent}
+      { path: 'test', component:TestComponent},
+      { path: 'feedback',component:FeedbackComponent} 
     ]),
     
   ],
