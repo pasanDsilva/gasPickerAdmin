@@ -70,6 +70,15 @@
     margin-bottom: 10px;
 }
 
+.btn.btn-outline-warning{
+    margin-top:8px;
+    margin-left: 10px;
+}
+.btn.btn-outline-danger{
+    margin-top: 8px;
+    margin-left: 4px;
+}
+
 .view{
     margin-right: auto;
     margin-left: auto;
@@ -92,4 +101,6 @@
 
 .table{
     width: 600px;
+    margin-left: 100px;
+    margin-right: auto;
 }

@@ -72,4 +72,8 @@ export class ProductsComponent  {
   removeProduct(key:string){
      this.testref.remove(key);
     } 
+
+  updateProduct(key:string,price:number){
+    this.testref.update(key,{price:price});
+  }
 }
