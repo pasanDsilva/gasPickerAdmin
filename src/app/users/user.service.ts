@@ -6,9 +6,19 @@ export class UserService {
 
   constructor(private db:AngularFireDatabase) { }
 
-  getDist(){
-    const dist:any =this.db.list("/user",ref => ref.orderByChild('name')).valueChanges();
-    return dist;
+  getDist(key){
+    const dist:any =this.db.list("/profile"+key);
+    // console.log(dist);
+    console.log(this.db.object('/profile/'+key))
+    return this.db.object('/profile/' +key);
   }
-    
+
+  authenUser(key){
+    const user:any = this.db.list("/profile"+key).valueChanges();
+    return user;
+  }
+  
+
 }
+    
+

@@ -75,6 +75,7 @@ export class ProductsComponent  {
   
   removeProduct(key:string){
      this.testref.remove(key);
+     this.alertService.create("success","Successfull", "Product succesfully deleted", this.alertOption  )
     } 
 
   updateProduct(key:string,price:number){

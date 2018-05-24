@@ -43,7 +43,7 @@
 
 
 
-.body{
+.body2{
     padding-left:  210px;
     height: 100%;
     width: 100%;
@@ -65,6 +65,15 @@
 
 .btn.btn-outline-success{
     width: 300px;
+}
+
+.btn.btn-outline-primary{
+    margin-top: 8px;
+}
+
+.btn.btn-outline-danger{
+    margin-left: 10px;
+    margin-top:8px;
 }
 
 .view{

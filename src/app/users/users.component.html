@@ -14,7 +14,7 @@
 </div>
 
 
-<div class="body text-white">
+<div class="body2 text-white">
   <h1 class="text-center display-4">
       <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
     Distributors
@@ -32,9 +32,10 @@
       <tbody>
         <tr *ngFor="let dist of dist$ | async"  >
           <td>{{dist.dealerName}}</td>
-          <td>{{dist.phone}}</td>
+          <td>{{dist.mobileNumber}}</td>
           <td>{{dist.location}}</td>
-          <button class="btn btn-outline-primary" (click)="open(dist)  ">View Profile</button>
+          <button class="btn btn-outline-primary" (click)="open(content,dist.key)  ">View Profile</button>
+          <button class="btn btn-outline-danger"(click)="removeUser(dist.key)">Delete User</button>
           <!-- <button class="btn btn-outline-primary" (click)="removeUser(dist)">delete</button> -->
           
           <!-- Modal -->
@@ -50,15 +51,15 @@
           </button>
         </div>
         <div class="modal-body">
-          <ul >
+          <ul *ngFor="let modal of modal$  " >
             <h4>Name</h4>
-              <li> {{dist.dealerName}} </li>
+              <li> {{modal.dealerName}} </li>
               <h4>Location</h4>
-              <li> {{dist.location}}</li>
+              <li> {{modal.location}}</li>
               <h4>Email</h4>
-              <li> {{dist.email}}</li>
+              <li> {{modal.Email}}</li>
               <h4>Phone</h4>
-              <li> {{dist.phone}}</li>
+              <li> {{modal.mobileNumber}}</li>
           </ul>
           <!-- <div #gmap style="width:100%;height:400px">
 
