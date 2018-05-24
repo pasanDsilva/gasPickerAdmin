@@ -20,8 +20,16 @@
       
   </div>
   <div class="feedback">
-          
-  </div>
+    <div class="view">
+          <ul *ngFor="let feedback of feedback$ | async">
+            <li>Email-{{feedback.email}} </li>
+            <li>Name-{{feedback.name}} </li>
+            <li>Phone Number-{{feedback.phone}} </li>
+            <li>Message-{{feedback.message}}</li>
+            <button class="btn btn-outline-danger" (click)="removeMessage(feedback.key)">Delete</button>
+          </ul>
+          </div>
+       </div>
   
   
   </div>

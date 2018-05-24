@@ -28,9 +28,9 @@
 
 .display-5{
     
-    padding-top: 100px;
+    /* padding-top: 100px; */
     /* padding-left: 100px; */
-    position: relative;
+    /* position: relative; */
 
 }
 
@@ -38,9 +38,9 @@
 
 .body{
     padding-left:  210px;
-    height: 100%;
+    height: auto !important;
     width: 100%;
-    position: fixed;
+    position: absolute;
     font-family: 'Raleway', sans-serif;
     /* padding: 1em 2em; */
     font-size: 18px;
