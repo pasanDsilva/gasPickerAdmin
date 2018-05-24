@@ -17,8 +17,8 @@ import { and } from '@angular/router/src/utils/collection';
 })
 export class ProductsComponent  {
 
-  products:any[];
-  test$;
+  products$:Observable<any[]>;
+  testref:AngularFireList<any>;
   // p$:AngularFireObject<any[]>;
   db:AngularFireDatabase;
   test:string[];
@@ -38,16 +38,17 @@ export class ProductsComponent  {
 
   constructor(db:AngularFireDatabase,private db1:AngularFireDatabase,private ProductsService:ProductsService,private alertService: AlertsService) {
      
-     db.list('/products').valueChanges().subscribe(products =>
-      this.products=products
+    //  db.list('/products').valueChanges().subscribe(products =>
+    //   this.products=products
 
-     );
+    //  );
 
-      // db.object('/products').subscribe(test$ =>
-      //   this.test$=test$
-
-      // )
-     console.log(this.test$);
+    this.testref = db.list('/products');
+    // Use snapshotChanges().map() to store the key
+    this.products$= this.testref.snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
+     console.log(this.products$);
 
     
     
@@ -68,9 +69,7 @@ export class ProductsComponent  {
       
     }
   
-  removeProduct(products){
-      this.db.object('/products/' + products.$key)
-      .remove()
-      .then(x => console.log("deleted"));
+  removeProduct(key:string){
+     this.testref.remove(key);
     } 
 }
