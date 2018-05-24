@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { JasperoAlertsModule } from '@jaspero/ng-alerts';
 import { AlertsService, AlertType, AlertSettings } from '@jaspero/ng-alerts';
 import { and } from '@angular/router/src/utils/collection';
+import { ViewChild } from '@angular/core';
 // import { $ } from 'protractor';
 
 
@@ -17,6 +18,7 @@ import { and } from '@angular/router/src/utils/collection';
 })
 export class ProductsComponent  {
 
+  @ViewChild('myform') myform: any;
   products$:Observable<any[]>;
   testref:AngularFireList<any>;
   // p$:AngularFireObject<any[]>;
@@ -61,11 +63,13 @@ export class ProductsComponent  {
   addProduct(){
      
       
-      // console.log(this.test);
+      // console.log(f);
       // console.log(this.pasan);
       console.log(this.addPro);
       const products= this.ProductsService.addProduct(this.addPro)
       this.alertService.create("success","Successfull", "Products succesfully added", this.alertOption  )
+      
+      this.myform.reset();
       
     }
   
@@ -76,4 +80,5 @@ export class ProductsComponent  {
   updateProduct(key:string,price:number){
     this.testref.update(key,{price:price});
   }
+
 }

@@ -44,6 +44,7 @@
       <div class="form-group">
       <input
         required
+        pattern="[^ @]*@[^ @]*"
         id="email"
         type="email"
         placeholder="Email"
@@ -51,9 +52,10 @@
         #email="ngModel"
         [(ngModel)]="addForm.email"
       >
-      <div class="alert alert-danger" *ngIf= "email.touched && !email.valid" >
+      <div class="alert alert-danger" *ngIf= "email.touched && !email.valid && !email.pattern" >
           <div *ngIf="email.errors.required">Email is required</div>
-          <div *ngIf="email.errors.email">Enter a valid Email</div>
+          <!-- <div *ngIf="email.errors.email">Enter a valid Email</div> -->
+          <div *ngIf="email.errors.pattern">Enter a valid Email</div>
         </div>
     </div>
     <div class="form-group">
