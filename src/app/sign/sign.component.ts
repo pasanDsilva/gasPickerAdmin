@@ -20,7 +20,7 @@ export class SignComponent {
 
   sign: any;
   sForm: FormGroup;
-  regForm = {username:'', email:'',password:'' }
+  regForm = {username:'', email:'',password:'' ,cpassword:''}
   alertOption = {
    
     overlay: true, 
@@ -56,11 +56,27 @@ export class SignComponent {
   handleSubmit () {
     
     console.log(this.regForm);
-    const user = this.signService.createAcc(this.regForm)
-    console.log("user", user)
-    // alert("User succesfully added")
-    this.alertService.create("success","Successfull", "User succesfully added", this.alertOption  )
+    
+    if (this.regForm.email=='' || this.regForm.password=='' || this.regForm.username==''){
+      this.alertService.create("error","Error", "Some fields maybe empty", this.alertOption  )
+    }
+      else{
+        
+        if(this.regForm.password != this.regForm.cpassword){
+          this.alertService.create("error","Error", "Passwords dont match", this.alertOption  )
+        }
+        else{
+          const user = this.signService.createAcc(this.regForm)
+          console.log("user", user)
+        this.alertService.create("success","Successfull", "User succesfully added", this.alertOption  )
+        }
+        
+      }
+      
+    
+    
   }
+
   
   btnclick(){
      this.router.navigateByUrl('');

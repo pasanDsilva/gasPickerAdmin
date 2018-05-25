@@ -72,6 +72,21 @@
           <div *ngIf="password.errors.minlength">Password should be more than 6 characters</div>
         </div>
     </div>
+    <div class="form-group">
+      <input
+        required minlength="6" 
+        id="cpassword"
+        type="password"
+        placeholder="Confirm Password"
+        class="form-control"
+        #cpassword="ngModel"
+        [(ngModel)]="addForm.cpassword"
+      >
+      <div class="alert alert-danger" *ngIf= "!password.valid" >
+          <div *ngIf="cpassword.errors.required">Confirm Password is required</div>
+          <div *ngIf="cpassword.errors.minlength">Confirm Password should be same as the Password</div>
+        </div>
+    </div>
 
       <button class="btn btn-outline-success" id="submit"  (click)="addAcc()" >Add User</button>
     

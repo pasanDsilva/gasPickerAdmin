@@ -12,7 +12,7 @@ import { AlertsService, AlertType, AlertSettings } from '@jaspero/ng-alerts';
 })
 export class NewaccComponent  {
 
-  addForm= {username:'',email:'',password:''}
+  addForm= {username:'',email:'',password:'',cpassword:''}
   alertOption = {
    
     overlay: true, 
@@ -30,9 +30,22 @@ export class NewaccComponent  {
   addAcc () {
     
     console.log(this.addForm);
-    const user = this.NewaccService.addAcc(this.addForm)
-    console.log("user", user)
-    // alert("User succesfully added")
-    this.alertService.create("success","Successfull", "User succesfully added", this.alertOption  )
+    
+    if (this.addForm.email=='' || this.addForm.password=='' || this.addForm.username==''){
+      this.alertService.create("error","Error", "Some fields maybe empty", this.alertOption  )
+    }
+      else{
+        
+        if(this.addForm.password != this.addForm.cpassword){
+          this.alertService.create("error","Error", "Passwords dont match", this.alertOption  )
+        }
+        else{
+          const user = this.NewaccService.addAcc(this.addForm)
+          console.log("user", user)
+        this.alertService.create("success","Successfull", "User succesfully added", this.alertOption  )
+        }
+        
+      }
+    
   }
 }
