@@ -49,9 +49,9 @@
 
 .body2{
     padding-left:  210px;
-    height: 100%;
+    height: inherit !important;
     width: 100%;
-    position: fixed;
+    position: absolute;
     font-family: 'Raleway', sans-serif;
     /* padding: 1em 2em; */
     font-size: 18px;

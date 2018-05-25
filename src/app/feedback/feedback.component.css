@@ -36,9 +36,9 @@
 
 
 
-.body{
+.body2.text-white{
     padding-left:  210px;
-    height: 100% !important;
+    height: inherit !important;
     width: 100%;
     position: absolute;
     font-family: 'Raleway', sans-serif;
