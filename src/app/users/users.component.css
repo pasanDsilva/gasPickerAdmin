@@ -38,7 +38,11 @@
     height: 100%;
     object-fit: cover;
 }
-
+.table.table-borderless.table-hover{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 
@@ -72,8 +76,12 @@
 }
 
 .btn.btn-outline-danger{
-    margin-left: 8px;
+    /* margin-left: 8px; */
     margin-top:8px;
+    margin-bottom: 4px;
+}
+.display-block{
+    width: 10px;
 }
 
 .view{

@@ -9,11 +9,13 @@ export class UserService {
   getDist(key){
     const dist:any =this.db.list("/profile"+key);
     // console.log(dist);
-    console.log(this.db.object('/profile/'+key))
+    // console.log(this.db.object('/profile/'+key))
     return this.db.object('/profile/' +key);
   }
 
-  authenUser(key){
+  authenUser(key:string){
+
+    console.log(key)
     const user:any = this.db.list("/profile"+key).valueChanges();
     return user;
   }
